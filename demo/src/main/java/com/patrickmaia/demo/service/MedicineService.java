@@ -19,7 +19,7 @@ public class MedicineService {
 
     }
 
-    public Medicine getOneMedicine(int id){
+    public Medicine getById(int id){
         return medicinesRepository.findById(id).orElse(null);
     }
 

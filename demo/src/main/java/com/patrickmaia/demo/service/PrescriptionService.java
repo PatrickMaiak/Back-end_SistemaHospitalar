@@ -16,10 +16,10 @@ public class PrescriptionService {
     @Autowired
     private PrescriptionRepository prescriptionRepository;
     @Autowired
-    private UsersRepository userRepository;
+    private UserService userService;
 
     @Autowired
-    private MedicinesRepository medicineRepository;
+    private MedicineService medicineService;
 
     public List<Prescription> getAll(){
         return prescriptionRepository.findAll();
@@ -33,9 +33,9 @@ public class PrescriptionService {
     }
     public Prescription createPrescription(Prescription prescription){
 
-            prescription.setPatient(userRepository.findById(prescription.getPatient().getId()).orElse(null));
-            prescription.setDoctor(userRepository.findById(prescription.getDoctor().getId()).orElse(null));
-            prescription.setMedicine(medicineRepository.findById(prescription.getMedicine().getId()).orElse(null));
+            prescription.setPatient(userService.getById(prescription.getPatient().getId()));
+            prescription.setDoctor(userService.getById(prescription.getDoctor().getId()));
+            prescription.setMedicine(medicineService.getById(prescription.getMedicine().getId()));
 
             return prescriptionRepository.save(prescription);
 

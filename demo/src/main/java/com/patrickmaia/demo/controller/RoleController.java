@@ -23,9 +23,9 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
-    public RoleDto getOneRole(@PathVariable("id") int id){
+    public RoleDto getById(@PathVariable("id") int id){
 
-        return RoleMapper.ToDto(roleService.getOneRole(id));
+        return RoleMapper.ToDto(roleService.getById(id));
     }
 
 

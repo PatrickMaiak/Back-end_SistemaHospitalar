@@ -23,7 +23,10 @@ public class WebSecurityConfig {
                         .requestMatchers("/prescription/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/prescription").permitAll()
                         .requestMatchers(HttpMethod.GET, "/prescription").permitAll()
-                        .requestMatchers("/medicine").permitAll()
+                        .requestMatchers("/medicine/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/medicine").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/medicine").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/medicine").permitAll()
 
                         .anyRequest().authenticated()) // Qualquer outra rota precisa estar autenticado
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // API sem estado

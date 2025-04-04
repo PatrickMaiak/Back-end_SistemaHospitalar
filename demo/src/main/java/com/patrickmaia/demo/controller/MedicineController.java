@@ -21,12 +21,14 @@ public class MedicineController {
 
     @GetMapping
     public List<MedicineDto> getAllMedicines(){
+        System.out.println("aqui esta o teste de saida do getAll ");
         return medicineService.getAllMedicine().stream().map(medicineMapper::toDto).toList();
     }
 
-    @GetMapping("medicine/id")
-    public MedicineDto getMedicine(@PathVariable("id") int id){
-        return medicineMapper.toDto(medicineService.getOneMedicine(id));
+    @GetMapping("/id/{id}")
+    public MedicineDto getById(@PathVariable Integer id){
+        System.out.println("aqui esta o teste de saida do getById ");
+        return medicineMapper.toDto(medicineService.getById(id));
         
     }
     @PostMapping
@@ -36,7 +38,7 @@ public class MedicineController {
         return medicineMapper.toDto(medicineSaved);
     }
 
-    @PostMapping("medicine/id")
+    @PostMapping("/{id}")
     public MedicineDto upadateMedicine(@PathVariable("id") int id, MedicineDto medicineDetails ){
         Medicine medicine = medicineMapper.toEntity(medicineDetails);
         Medicine medicineUpdated = medicineService.updateMedicine(id,medicine);

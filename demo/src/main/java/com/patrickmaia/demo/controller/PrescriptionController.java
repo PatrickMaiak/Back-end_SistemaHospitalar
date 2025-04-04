@@ -32,7 +32,7 @@ public class PrescriptionController {
         return prescriptionService.getAll().stream().map(prescriptionMapper::toDto).toList();
     }
     @GetMapping("/get/{id}")
-    public PrescriptionDto getOne(@PathVariable Integer id){
+    public PrescriptionDto getById(@PathVariable Integer id){
 
         return prescriptionMapper.toDto(prescriptionService.getById(id));
     }

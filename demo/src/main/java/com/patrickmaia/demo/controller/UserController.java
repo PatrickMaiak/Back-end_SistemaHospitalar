@@ -30,8 +30,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserDto getOneUser(@PathVariable("id")  int id){
-        return userMapper.toDto(userService.getOneUser(id));
+    public UserDto getById(@PathVariable("id")  int id){
+        return userMapper.toDto(userService.getById(id));
     }
     @PostMapping
     public UserDto createUser(@RequestBody UserDto userdto){
