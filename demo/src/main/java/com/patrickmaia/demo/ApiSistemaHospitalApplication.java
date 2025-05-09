@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiSistemaHospitalApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Iniciando a aplicação...");
+		System.out.println("Iniciando a aplicação!");
 		SpringApplication.run(ApiSistemaHospitalApplication.class, args);
 
 	}

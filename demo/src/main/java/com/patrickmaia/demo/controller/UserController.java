@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<UserDto> getAllUser(){
         return userService.getAllUsers().stream().map(userMapper::toDto).toList();
 //        return userService.getAllUsers().stream().map(user -> userMapper.toDto(user)).toList();
